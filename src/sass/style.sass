@@ -1,0 +1,588 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+	margin: 0
+	padding: 0
+	border: 0
+	font-size: 100%
+	font: inherit
+	vertical-align: baseline
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section
+	display: block
+
+body
+	line-height: 1
+
+ol, ul
+	list-style: none
+
+blockquote, q
+	quotes: none
+
+blockquote:before, blockquote:after,
+q:before, q:after
+	content: ''
+	content: none
+
+table
+	border-collapse: collapse
+	border-spacing: 0
+
+$main_color: #0f7fff
+
+/* Main section */
+.main-section
+	width: 100%
+	height: 100%
+	padding-bottom: 80px
+
+header
+	width: 100%
+	height: 147px
+
+.header-left
+	width: 100%
+	line-height: 71.5px
+	display: block
+	height: 100%
+	a 
+		display: inline-block
+		width: 150px
+		outline: none
+		span
+			font-family: "OpenSans-Bold"
+			font-size: 1.6em
+			margin-left: 5px
+			position: absolute
+			text-decoration: none
+			color: #000
+		&:hover
+			text-decoration: none
+			opacity: .8
+
+/* Custom dropdown select */
+.select-field
+	display: inline-block
+	width: 80px
+	height: 40px
+	position: absolute
+	margin: 20px 0px 0px 10px
+	padding: 0px
+	border-radius: 7px
+	background-color: #f5f8fb
+	z-index: 1
+	box-shadow: 0px 3px 3px 1px #dfe5ed
+	&:hover
+		box-shadow: inset 0px 3px 3px 1px #dfe5ed
+		cursor: pointer
+		ul
+			border: 2px solid #c2c2c2
+			li
+				padding: 5px 16px 0 5px
+				height: 33px
+				box-shadow: 0px 3px 3px 1px #dfe5ed
+		border: 1px solid #c2c2c2
+		&::after
+			content: ""
+			width: 0px
+			height: 0px
+			border-top: 6px solid #000
+			border-right: 5px solid transparent
+			border-left: 5px solid transparent
+			position: absolute
+			top: 50%
+			right: 15px 
+			z-index: 2
+			transition: all 1s ease
+	&::after
+		content: ""
+		width: 0px
+		height: 0px
+		border-top: 6px solid #c4ccd3
+		border-right: 5px solid transparent
+		border-left: 5px solid transparent
+		position: absolute
+		top: 50%
+		right: 15px 
+		z-index: 2
+	label
+		height: 100%
+		margin: 0
+		line-height: 35px
+		position: absolute
+		left: 20px
+		line-height: 42px
+		font-size: 0.875em
+		font-family: "Roboto-Regular", sans-serif
+		a
+			position: relative
+			width: 100%
+			height: 100%
+	ul
+		margin: 0
+		border-radius: 7px
+		position: relative
+		top: 40px
+		li
+			background-color: #fff
+			position: relative
+			top: 0
+			width: 100%
+			height: 0px
+			overflow: hidden
+			line-height: 20px
+			text-align: center
+			padding: 0px 16px
+			transition: height 0.2s linear 0s
+			color: #000
+			font-size: 0.875em
+			font-family: "Roboto-Regular", sans-serif
+			a
+				position: absolute
+				width: 100%
+				height: 100%
+				left: 0
+				top: 0
+				outline: none
+				color: #000
+				line-height: 30px
+				padding-right: 10px
+				&:hover
+					color: #fff
+			&:hover
+				background: $main_color
+				color: #fff
+
+/* Sidebar */ 
+.sidebar-wrap
+	position: fixed
+	top: 0
+	left: 100%
+	background: pink
+	width: 100%
+	min-height: 100%
+	background: rgba(2, 255, 255, .4)
+	z-index: 9
+
+.sidebar	
+	width: 230px
+	height: 100%
+	background: #fff
+	right: -100%
+	top: 0
+	border-sizing: border-box
+	position: fixed
+	overflow-x: hidden
+	overflow-y: auto
+	z-index: 11
+	transition-duration: .5s
+	li
+		line-height: 50px
+		padding: 0 0 0px 10px
+		width: 240px
+		a
+			color: #000
+			z-index: 1000
+			text-transform: uppercase
+			font-size: 0.8em
+			font-family: "OpenSans-Bold", sans-serif
+			line-height: 30px
+			width: 100%
+			&:hover
+				color: $main_color
+				transition: all .5s ease
+
+/* Custom Toggle button */
+.open-icon
+	position: absolute
+	top: 50%
+	left: 60%
+	display: inline-block
+	float: left
+	transform: translate(-40% , -40%)
+	width: 40px
+	height: 40px
+	cursor: pointer
+	display: none
+	
+.open-menu
+	width: 30px
+	height: 3px
+	background: #000	
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-52%, -50%)
+	box-shadow: 0 2px 2px rgba(89,87,87,.8)
+	-webkit-box-shadow: 0 2px 2px rgba(89,87,87,.8)
+	-moz-box-shadow: 0 2px 2px rgba(89,87,87,.8)
+	transition: .2s 
+	display: none
+	&::before,&::after
+		content: ''	
+		position: absolute
+		width: 30px
+		height: 3px
+		background: #000
+		box-shadow: 0 2px 2px rgba(89,87,87,.8)
+		-webkit-box-shadow: 0 2px 2px rgba(89,87,87,.8)
+		-moz-box-shadow: 0 2px 2px rgba(89,87,87,.8)
+		transition: .2s		
+	&::before
+		top: -9px
+	&::after
+		top: 9px	
+	
+.open-icon.active .open-menu
+	background: none
+	box-shadow: 0 2px 2px rgba(0,0,0,0)
+	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,0)
+	-moz-box-shadow: 0 2px 2px rgba(0,0,0,0)
+
+	&::before
+		top: 0
+		transform: rotate(45deg)
+
+	&::after
+		top: 0
+		transform: rotate(135deg)
+
+/* Navigation menu top part */
+.header-nav
+	width: 100%
+	height: 100%
+	box-sizing: border-box
+	ul
+		display: inline-block
+		float: right
+		margin: 0 auto
+		height: 100%
+		li
+			height: 100%
+			float: left
+			line-height: 70px
+			padding-right: 50px
+			&:last-child
+				padding-right: 20px
+			a
+				text-decoration: none
+				color: #424344
+				text-transform: uppercase
+				font-size: 0.8em
+				font-family: "OpenSans-SemiBold", sans-serif
+				&:hover
+					color: $main_color
+					transition: all 0.5s ease
+
+.border
+	width: 890px
+	float: right
+	right: 15px
+	display: block
+	position: absolute
+	height: 3px
+	background: #ccd2d8 
+
+/* Navigation menu bottom part */
+.header-nav__bottom	
+	width: 100%
+	height: 70px
+
+	ul
+		display: inline-block
+		float: right
+		height: 100%
+		margin: 0 auto
+		li
+			float: left			
+			line-height: 70px
+			padding-right: 36px
+			&:last-child
+				padding-right: 15px
+			a
+				text-decoration: none
+				color: #000
+				font-family: "OpenSans-Regular", sans-serif
+				font-weight: bold
+				font-size: 0.850em
+				&:hover
+					color: $main_color
+					transition: all 0.5s ease
+
+/* First section content */
+.content
+	width: 100%
+	height: 100%
+	padding-top: 40px
+	
+	img
+		display: block
+		margin: 0 auto
+		max-width: 100%
+		box-sizing: border-box
+	h1
+		text-align: center
+		font-family: "Roboto-Regular", sans-serif
+		font-size: 2.9em
+		padding-top: 30px
+		span
+			color: #ff365d
+			font-family: "Roboto-Regular", sans-serif
+	h2
+		text-align: center
+		font-size: 1.4em
+		font-family: "Roboto-Regular", sans-serif
+		letter-spacing: -1px
+		span
+			color: $main_color
+			font-family: "Roboto-Regular", sans-serif
+
+/* First	section */			
+.section-1
+	width: 100%
+	height: 100%
+	background: #f0f3f7	
+	padding: 87px 0 87px 0
+	ul
+		text-align: center
+		margin: 0 auto
+		width: 860px
+		height: 100%
+		li
+			text-align: left
+			position: relative
+			margin: 0 auto
+			display: inline-block
+			margin-bottom: 60px
+			width: 750px
+			&::before
+				content: ''
+				position: absolute
+				bottom: -30px
+				left: 0
+				width: 35px
+				border-bottom: 1px solid #c4c7ca	
+			&:last-child
+				margin-bottom: 0
+				&::before
+					border: none
+
+/* Text marker */
+.marker
+	width: 138px
+	display: inline-block
+	background: url('../img/marker.png') no-repeat 
+	background-position: -4px 0
+
+/* List numbers */
+.count
+	position: absolute
+	left: -25px
+	top: -5px
+	font-size: 1.625em
+	color: $main_color
+
+/* Second section */
+.section-2
+	width: 100%
+	height: 100%
+	background: #c4ccd3
+	padding: 45px 0 45px 0
+	p
+		text-align: center
+		margin: 0
+		width: 100%
+
+/* Button wrapper */
+.buttons
+	padding: 28px 0 0 0
+
+/* Button */
+.button	
+	font-family: "OpenSans-Bold", sans-serif
+	display: block
+	margin: 0 auto
+	width: 300px
+	height: 50px
+	box-sizing: border-box
+	border: none
+	cursor: pointer
+	text-decoration: none
+	text-align: center
+	font-size: 1.125em
+	line-height: 50px
+	background-color: $main_color
+	color: #fff
+	box-shadow: 0 8px 15px 0 rgba(1, 78, 166, .3)
+	border-radius: 2px
+	&:hover
+		text-decoration: none
+		background-color: #005bd8
+		cursor: pointer
+		color: #fff
+
+/* Footer */
+.footer
+	width: 100%
+	height: 100%
+
+/* Footer top part */
+.footer-top
+	width: 100%
+	height: 234px
+	background: #f0f3f7
+	padding: 48px 0 48px 0
+	display: inline-block
+	&__part
+		width: 351px
+		height: 100%
+		display: inline-block
+		float: left
+		p
+			height: auto
+			margin: 0
+
+/* Centered wrapper for footer */
+.footer-wrap
+	width: 100%
+	height: 100%
+	margin: 0 auto
+	padding: 0 10px
+	
+
+.footer-menu__part
+	max-width: 100%
+	height: 100%
+	display: inline-block
+	float: left
+	padding: 0
+	&:nth-child(2)
+		width: 293px
+	&:nth-child(3)
+		width: 159px
+	&:nth-child(4)
+		width: 273px
+	ul
+		max-width: 100%
+		margin: 0
+		line-height: 20px
+		li
+			a
+				font-size: 0.813em
+				color: #939597
+				font-family: "Roboto-Regular", sans-serif
+				&:hover
+					color: $main_color
+
+
+.footer-caption
+	font-family: "OpenSans-Bold", sans-serif
+	text-transform: uppercase
+	font-size: 0.875em
+	padding-bottom: 7px
+
+.footer-bot
+	width: 100%
+	height: 120px
+	padding: 30px 0 30px 0
+	background: #fff	
+	font-size: 0.813em
+	color: #000
+	p
+		margin: 0
+	&__part
+		width: 346px
+		height: 100%
+		float: left
+		display: inline-block
+
+.footer-info
+	width: 500px
+	height: 100%
+	float: left
+	display: inline-block	
+	padding: 0 0 0 20px
+	&__phones
+		height: 100%
+		width: 260px
+		float: left
+		ul
+			float: left
+			display: inline-block
+			margin: 0
+			height: 100%
+			li
+				float: left
+				display: inline-block
+				padding-right: 30px
+				&:nth-child(2)
+					padding: 0
+				&:nth-child(4)
+					padding: 0	
+
+	&__mail
+		width: 220px
+		height: 60px
+		display: inline-block
+		float: left
+		ul
+			margin: 0
+			display: inline-block
+			float: left
+			padding-left: 30px
+
+/* Social icons wrap */
+.footer-social-wrap
+	width: 252px
+	height: 100%
+	display: inline-block
+	position: relative
+	float: right
+	padding: 0 0 0 20px
+	a
+		width: 30px
+		height: 30px
+		position: relative
+		display: inline-block
+		background-image: url('../img/sprite.png')
+		background-repeat: no-repeat
+		&:hover
+			background-position: -30px 0
+		&:nth-child(2)
+			background-position: -60px 0
+			&:hover
+				background-position: -90px 0
+		&:nth-child(3)
+			background-position: -120px 0	
+			&:hover
+				background-position: -150px 0
+		&:nth-child(4)
+			background-position: -180px 0
+			&:hover
+				background-position: -210px 0	
+		&:nth-child(5)
+			background-position: -240px 0
+			&:hover
+				background-position: -270px 0
+		&:nth-child(6)
+			background-position: -300px 0
+			&:hover
+				background-position: -330px 0
+				
+			
+
+
+
